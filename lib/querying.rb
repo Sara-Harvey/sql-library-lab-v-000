@@ -10,40 +10,26 @@ end
 
 
 def select_value_and_count_of_most_prolific_species
-  "SELECT species, COUNT(species)
-  FROM characters
-  GROUP BY species
-  ORDER BY COUNT(species) DESC
-  LIMIT 1"
+  "SELECT species, COUNT(species) FROM characters
+  GROUP BY species ORDER BY COUNT(species) DESC LIMIT 1"
 end
 
 def select_name_and_series_subgenres_of_authors
-  "SELECT authors.name, subgenres.name
-  FROM authors
-  INNER JOIN series
-  ON authors.id = series.author_id
-  INNER JOIN subgenres
-  ON series.subgenre_id = subgenres.id"
+  "SELECT authors.name, subgenres.name FROM authors
+  INNER JOIN series ON authors.id = series.author_id
+  INNER JOIN subgenres ON series.subgenre_id = subgenres.id"
 end
 
 def select_series_title_with_most_human_characters
-  "SELECT title
-  FROM series
-  INNER JOIN characters
+  "SELECT title FROM series INNER JOIN characters
   ON characters.series_id = series.id
   WHERE characters.species = 'human'
-  GROUP BY series.title
-  ORDER BY COUNT(*)
-  DESC LIMIT 1"
+  GROUP BY series.title ORDER BY COUNT(*) DESC LIMIT 1"
 end
 
 def select_character_names_and_number_of_books_they_are_in
-  "SELECT characters.name, COUNT(title)
-  FROM characters
-  INNER JOIN character_books
-  ON characters.id = character_books.character_id
-  INNER JOIN books
-  ON character_books.book_id = books.id
-  GROUP BY characters.name
-  ORDER BY COUNT(title) DESC"
+  "SELECT characters.name, COUNT(title) FROM characters
+  INNER JOIN character_books ON characters.id = character_books.character_id
+  INNER JOIN books ON character_books.book_id = books.id
+  GROUP BY characters.name ORDER BY COUNT(title) DESC"
 end
