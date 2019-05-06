@@ -4,6 +4,7 @@ def select_books_titles_and_years_in_first_series_order_by_year
   WHERE series.id = 1 ORDER BY books.year"
 end
 
+=begin
   SELECT column_name(s)
 FROM first_table
 INNER JOIN second_table
@@ -15,7 +16,7 @@ ON first_table.column_name = second_table.column_name;
   WHERE series.id = 1 
   ORDER BY books.year"
 
-=begin
+
 def select_name_and_motto_of_char_with_longest_motto
   "SELECT characters.name, characters.motto FROM characters ORDER BY LENGTH(motto) DESC LIMIT 1"
 end
