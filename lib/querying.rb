@@ -4,6 +4,9 @@ def select_books_titles_and_years_in_first_series_order_by_year
   WHERE series.id = 1 ORDER BY books.year"
 end
 
+  selects all of the books titles and years in the first series and orders themchronologically
+
+
 =begin
   SELECT column_name(s)
 FROM first_table
